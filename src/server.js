@@ -11,7 +11,7 @@ class App {
 
         this.database();
         this.middlewares();
-        this.routes
+        this.routes();
     }
 
     database() {
