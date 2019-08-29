@@ -15,7 +15,7 @@ class App {
     }
 
     database() {
-        mongoose.connect('mongodb+srv://payprev:payprev@cluster0-jywxt.mongodb.net/test?retryWrites=true&w=majority', {
+        mongoose.connect(databaseConfig.uri, {
             useNewUrlParser: true
         })
     }
