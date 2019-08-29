@@ -11,12 +11,17 @@ class App {
 
         this.database();
         this.middlewares();
+        this.routes
     }
 
     database() {
         mongoose.connect(databaseConfig.uri, {
             useNewUrlParser: true
         })
+    }
+
+    routes() {
+        this.express.use(require('./routes'))
     }
 
     middlewares() {
