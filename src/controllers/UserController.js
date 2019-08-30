@@ -1,7 +1,6 @@
 const Yup = require('yup');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 const regexCpf = `^[0-9]{11}$`;
 const regexp = new RegExp(regexCpf);
