@@ -1,5 +1,8 @@
+const Yup = require('yup');
 const User = require('../model/User');
 const bcrypt = require('bcrypt');
+const regexCpf = `^[0-9]{11}$`
+const regexp = new RegExp(regexCpf)
 
 module.exports = {
     async index(req, res) {
@@ -9,7 +12,21 @@ module.exports = {
     },
 
     async store(req, res) {
+        const schema = Yup.object().shape({
+            email: Yup.string().email().required(),
+            password: Yup.string().required().min(6)
+        });
+
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ error: `Invalid email or password!` })
+        }
+
         const { email, cpf, password, isAdmin } = req.body;
+
+        const checkCpfIsValid = regexp.test(cpf)
+        if (!checkCpfIsValid) {
+            return res.status(400).json({ error: 'Invalid cpf.' })
+        }
 
         const existsEmail = await User.findOne({ email })
         if (existsEmail) {
@@ -39,6 +56,15 @@ module.exports = {
     },
 
     async login(req, res) {
+        const schema = Yup.object().shape({
+            email: Yup.string().email().required(),
+            password: Yup.string().required().min(6)
+        });
+
+        if (!(await schema.isValid(req.body))) {
+            return res.status(400).json({ error: `Invalid email or password!` })
+        }
+
         const { email, password } = req.body;
 
         const user = await User.findOne({ email })
