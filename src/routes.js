@@ -15,5 +15,6 @@ routes.get('/users', UserController.index)
 routes.use(authMiddleware)
 
 routes.get('/userGit/:username', UserAdminController.index)
+routes.post('/userGit/:username', UserAdminController.store)
 
 module.exports = routes;
