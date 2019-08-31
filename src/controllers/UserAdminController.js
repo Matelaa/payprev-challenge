@@ -30,7 +30,7 @@ module.exports = {
             return res.status(401).json({ error: 'You dont have permission to do this.' })
         }
 
-        const { username } = req.params
+        const { username } = req.body
         
         const userGit = await axios.get(`https://api.github.com/users/${username}`)
         if (!userGit) {
