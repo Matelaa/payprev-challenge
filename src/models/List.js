@@ -19,8 +19,7 @@ const ListSchema = new mongoose.Schema({
         },
         
         tag: {
-            type: String,
-            required: true
+            type: String
         }
     }]
 }, {
