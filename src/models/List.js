@@ -12,6 +12,7 @@ const ListSchema = new mongoose.Schema({
     },
 
     usersGit: [{
+        _id: false,
         userGit: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'UserGit'
