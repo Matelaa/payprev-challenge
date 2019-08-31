@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// O motivo de nao colocar name, bio e location como required = true, é porque esses campos podem vir como nulos
 const UserGitSchema = new mongoose.Schema({
     login: {
         type: String,
@@ -7,18 +8,15 @@ const UserGitSchema = new mongoose.Schema({
     },
 
     name: {
-        type: String,
-        required: true
+        type: String
     },
 
     bio: {
-        type: String,
-        required: true
+        type: String
     },
 
     location: {
-        type: String,
-        required: true
+        type: String
     },
 
     html_url: {
