@@ -34,7 +34,7 @@ module.exports = {
                 _id,
                 email
             },
-            token: jwt.sign({ _id }, authConfig.secret)
+            token: jwt.sign({ _id: user._id }, authConfig.secret)
         })
     }
 }
