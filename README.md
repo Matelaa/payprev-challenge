@@ -55,9 +55,11 @@ Autonomia.
 - [x] Suba seu código em um repositório, no seu Github;
 
 #### Rotas:
-BaseURL: https://localhost:3000
+BaseURL: http://localhost:3000
 
-Heroku:  https://sheltered-gorge-46015.herokuapp.com/
+Heroku:  https://sheltered-gorge-46015.herokuapp.com
+
+Postman Collection: https://www.getpostman.com/collections/22d64b5083594854859f
 
 #### User
 -  POST 
