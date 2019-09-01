@@ -9,12 +9,16 @@ const authMiddleware = require('./middlewares/auth');
 
 const routes = express.Router();
 
-// SessionController - Rota para realizar o login
-routes.post('/login', SessionController.store)
+routes.get('/', (req, res) => {
+    res.json('Hello Payprev')
+})
 
 // UserController - Rotas para criar um User e listar os users.
 routes.post('/user', UserController.store)
 routes.get('/users', UserController.index)
+
+// SessionController - Rota para realizar o login
+routes.post('/login', SessionController.store)
 
 // AuthMiddleware - Faz a requisição de permissao de token para realizar determinadas requisições, todas as rotas abaixo dessa, passarão pela requisição de token
 routes.use(authMiddleware)
