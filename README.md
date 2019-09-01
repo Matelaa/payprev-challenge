@@ -56,6 +56,7 @@ Autonomia.
 
 #### Rotas:
 BaseURL: https://localhost:3000
+Heroku:  https://sheltered-gorge-46015.herokuapp.com/
 
 #### User
 -  POST 
