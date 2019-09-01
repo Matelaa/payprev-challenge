@@ -32,7 +32,7 @@ module.exports = {
             }
 
             // if feito para obrigar ele a colocar uma tag para um usuario
-            if (!tag || tag !== 'Full-stack' || tag !== 'Back-end' || tag !== 'Front-end') {
+            if (!tag || tag !== 'Full-stack' && tag !== 'Back-end' && tag !== 'Front-end') {
                 return res.status(400).json({ error: `Nonexistent tag, put 'Full-stack' or 'Back-end' or 'Front-end'` })
             }
         }
