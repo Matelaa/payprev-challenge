@@ -205,6 +205,29 @@ Response
 }
 ```
 
+ou
+
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Body
+{
+	"name": "TesteHeroku4"
+}
+
+Response
+{
+    "_id": "5d6b2be2a614cb05c06d12fa",
+    "name": "TesteHeroku4",
+    "user": "5d6b28e26db60d0017ef881a",
+    "usersGit": [],
+    "createdAt": "2019-09-01T02:24:34.539Z",
+    "updatedAt": "2019-09-01T02:24:34.539Z",
+    "__v": 0
+}
+```
+
 -  GET 
 - [x] /lists - Retorna as listas do usuario
 ```
