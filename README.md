@@ -53,32 +53,264 @@ Autonomia.
 #### Rotas:
 BaseURL: https://localhost3000
 
+##### User
 - ** POST **
 - [x] /user - Registra um usuario
 ```
 Body
 {
-	"email": "payprev@gmail.com",
+	"email": "matela@gmail.com",
 	"password": "12341234",
 	"cpf": "11122233344",
 	"isAdmin": true
 }
+
 Response
 {
     "isAdmin": true,
-    "_id": "5d6ae9c7beddfa23644139f3",
-    "email": "payprev@gmail.com",
+    "_id": "5d6b16ae6f80b905ec353fae",
+    "email": "matela@gmail.com",
     "cpf": "11122233344",
-    "password": "$2b$10$2UOS3tlwB7aWJK6le064/.EaCdWtCI7ypRZvRrCMoUbhVy6Hjg5yO",
-    "createdAt": "2019-08-31T21:42:31.848Z",
-    "updatedAt": "2019-08-31T21:42:31.848Z",
+    "password": "$2b$10$0V/iSIKGstof0hlKFp5P5uJ6ayUlsXY8RN83r7dEQL4DhYsTK47uy",
+    "createdAt": "2019-09-01T00:54:06.219Z",
+    "updatedAt": "2019-09-01T00:54:06.219Z",
     "__v": 0
 }
 ```
 
 - ** GET **
 - [x] /users - Retorna todos os usuarios cadastrados
+```
+Response
+[
+    {
+        "isAdmin": true,
+        "_id": "5d6b16ae6f80b905ec353fae",
+        "email": "matela@gmail.com",
+        "cpf": "11122233344",
+        "password": "$2b$10$0V/iSIKGstof0hlKFp5P5uJ6ayUlsXY8RN83r7dEQL4DhYsTK47uy",
+        "createdAt": "2019-09-01T00:54:06.219Z",
+        "updatedAt": "2019-09-01T00:54:06.219Z",
+        "__v": 0
+    }
+]
+```
 
+#### Authentication
+- ** POST **
+- [x] /login - Realiza o login
+```
+Body
+{
+	"email": "matela@gmail.com",
+	"password": "12341234"
+}
 
+Response
+{
+    "user": {
+        "_id": "5d6b16ae6f80b905ec353fae",
+        "email": "matela@gmail.com"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg"
+}
+```
+
+#### UserGit (Apenas para Admin)
+- ** GET **
+- [x] /userGit/:username - Retorna as informações do Github
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Response
+{
+    "success": "Matelaa",
+    "name": "José Matela Neto",
+    "bio": "Computer Science student",
+    "location": "Brazil, Fortaleza - Ceará",
+    "html_url": "https://github.com/Matelaa"
+}
+```
+
+- ** POST **
+- [x] /userGit - Cadastra um usuario do Git
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Body
+{
+	"username": "Matelaa"
+}
+
+Response
+{
+    "_id": "5d6b17d56f80b905ec353faf",
+    "login": "Matelaa",
+    "name": "José Matela Neto",
+    "bio": "Computer Science student",
+    "location": "Brazil, Fortaleza - Ceará",
+    "html_url": "https://github.com/Matelaa",
+    "createdAt": "2019-09-01T00:59:01.729Z",
+    "updatedAt": "2019-09-01T00:59:01.729Z",
+    "__v": 0
+}
+```
+
+#### List
+- ** POST **
+- [x] /list - Cria uma lista
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Body
+{
+	"name": "PayprevChallenge",
+	"usersGit": [
+		{
+			"userGit": "5d6b17d56f80b905ec353faf",
+			"tag": "Full-stack"
+		}]
+}
+
+Response
+{
+    "_id": "5d6b18bb80d4d8138c783810",
+    "name": "PayprevChallenge",
+    "user": "5d6b16ae6f80b905ec353fae",
+    "usersGit": [
+        {
+            "userGit": "5d6b17d56f80b905ec353faf",
+            "tag": "Full-stack"
+        }
+    ],
+    "createdAt": "2019-09-01T01:02:51.131Z",
+    "updatedAt": "2019-09-01T01:02:51.131Z",
+    "__v": 0
+}
+```
+
+- ** GET **
+- [x] /lists - Retorna as listas do usuario
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Response
+[
+    {
+        "_id": "5d6b18bb80d4d8138c783810",
+        "name": "PayprevChallenge",
+        "user": "5d6b16ae6f80b905ec353fae",
+        "usersGit": [
+            {
+                "userGit": "5d6b17d56f80b905ec353faf",
+                "tag": "Full-stack"
+            }
+        ],
+        "createdAt": "2019-09-01T01:02:51.131Z",
+        "updatedAt": "2019-09-01T01:02:51.131Z",
+        "__v": 0
+    }
+]
+```
+
+- ** PUT **
+- [x] /list/:id - Altera o nome de uma lista do usuario
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Body
+{
+	"name": "PayprevChallenge2Editado"
+}
+
+Response
+{
+    "_id": "5d6b18bb80d4d8138c783810",
+    "name": "PayprevChallenge2Editado",
+    "user": "5d6b16ae6f80b905ec353fae",
+    "usersGit": [
+        {
+            "userGit": "5d6b17d56f80b905ec353faf",
+            "tag": "Full-stack"
+        }
+    ],
+    "createdAt": "2019-09-01T01:02:51.131Z",
+    "updatedAt": "2019-09-01T01:09:45.189Z",
+    "__v": 0
+}
+```
+
+- ** DELETE **
+- [x] /list/:id - Deleta uma lista do usuario
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+{
+    "success": "This list is deleted succesfully."
+}
+```
+
+#### UserGitList
+- ** GET **
+- [x] /usersGit - Retorna os usuarios cadastrados por um ADMIN
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Response
+[
+    {
+        "_id": "5d6b17d56f80b905ec353faf",
+        "login": "Matelaa",
+        "name": "José Matela Neto",
+        "bio": "Computer Science student",
+        "location": "Brazil, Fortaleza - Ceará",
+        "html_url": "https://github.com/Matelaa",
+        "createdAt": "2019-09-01T00:59:01.729Z",
+        "updatedAt": "2019-09-01T00:59:01.729Z",
+        "__v": 0
+    }
+]
+```
+
+- ** POST **
+- [x] /userGit/list - Adiciona um usuario a uma lista do usuario
+```
+Header
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
+
+Body
+{
+	"login": "BrenoAquino",
+	"name": "PayprevChallenge",
+	"tag": "Back-end"
+}
+
+Response
+{
+    "_id": "5d6b1b9780d4d8138c783812",
+    "name": "PayprevChallenge",
+    "user": "5d6b16ae6f80b905ec353fae",
+    "usersGit": [
+        {
+            "userGit": "5d6b17d56f80b905ec353faf",
+            "tag": "Full-stack"
+        },
+        {
+            "userGit": "5d6b1b7480d4d8138c783811",
+            "tag": "Back-end"
+        }
+    ],
+    "createdAt": "2019-09-01T01:15:03.159Z",
+    "updatedAt": "2019-09-01T01:15:17.964Z",
+    "__v": 1
+}
+```
 
 Observação: Acrescente todas as informações que precisaremos para testar sua aplicação, no arquivo README ou no corpo do e-mail, como preferir. Não esqueça de documentar as rotas da sua API.
