@@ -41,9 +41,13 @@ Qualquer funcionalidade além das que citamos anteriormente é muito bem-vinda.
 
 #### O que vamos analisar?
 Qualidade do código, modularidade, legibilidade e criatividade;
+
 Comentários;
+
 Testes;
+
 Prazo;
+
 Autonomia.
 
 #### Entrega:
@@ -54,7 +58,7 @@ Autonomia.
 BaseURL: https://localhost:3000
 
 #### User
-- ** POST **
+-  POST 
 - [x] /user - Registra um usuario
 ```
 Body
@@ -78,7 +82,7 @@ Response
 }
 ```
 
-- ** GET **
+-  GET 
 - [x] /users - Retorna todos os usuarios cadastrados
 ```
 Response
@@ -98,7 +102,7 @@ Response
 
 
 ### Authentication
-- ** POST **
+-  POST 
 - [x] /login - Realiza o login
 ```
 Body
@@ -119,8 +123,9 @@ Response
 
 
 ### UserGit (Apenas para Admin)
-- ** GET **
+-  GET 
 - [x] /userGit/:username - Retorna as informações do Github (username = Nome do usuario no Github)
+      
       Ex: /userGit/Matelaa
 ```
 Header
@@ -136,7 +141,7 @@ Response
 }
 ```
 
-- ** POST **
+-  POST 
 - [x] /userGit - Cadastra um usuario do Git
 ```
 Header
@@ -163,7 +168,7 @@ Response
 
 
 ### List
-- ** POST **
+-  POST 
 - [x] /list - Cria uma lista
 ```
 Header
@@ -196,7 +201,7 @@ Response
 }
 ```
 
-- ** GET **
+-  GET 
 - [x] /lists - Retorna as listas do usuario
 ```
 Header
@@ -221,8 +226,9 @@ Response
 ]
 ```
 
-- ** PUT **
+-  PUT 
 - [x] /list/:id - Altera o nome de uma lista do usuario (id = id de uma lista do usuario)
+      
       Ex: /list/5d6b18bb80d4d8138c783810
 ```
 Header
@@ -250,8 +256,9 @@ Response
 }
 ```
 
-- ** DELETE **
+-  DELETE 
 - [x] /list/:id - Deleta uma lista do usuario (id = id de uma lista do usuario)
+      
       Ex: /list/5d6b18bb80d4d8138c783810
 ```
 Header
@@ -264,7 +271,7 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODB
 
 
 ### UserGitList
-- ** GET **
+-  GET 
 - [x] /usersGit - Retorna os usuarios cadastrados por um ADMIN
 ```
 Header
@@ -297,7 +304,7 @@ Response
 ]
 ```
 
-- ** POST **
+-  POST 
 - [x] /userGit/list - Adiciona um usuario a uma lista do usuario
 ```
 Header
