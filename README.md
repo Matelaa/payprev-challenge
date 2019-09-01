@@ -14,6 +14,7 @@ P.S: O desenvolvimento do front-end não é obrigatório, pois usaremos o Insomn
 
 ##### Quando falo validação, entenda:
 Cadastro: Senha com 6 dígitos ou mais + e-mail válido + CPF com números somente (11 dígitos);
+
 Login: Senha com 6 dígitos ou mais + e-mail válido;
 
 
@@ -48,12 +49,11 @@ Autonomia.
 #### Entrega:
 - [x] Faça o deploy da sua API no Heroku (ou plataforma semelhante);
 - [x] Suba seu código em um repositório, no seu Github;
-- [x] Envie o link da aplicação + link do repositório para gabriel.rodrigues@payprev.com.br com o título “Teste back-end”.
 
 #### Rotas:
-BaseURL: https://localhost3000
+BaseURL: https://localhost:3000
 
-##### User
+#### User
 - ** POST **
 - [x] /user - Registra um usuario
 ```
@@ -96,7 +96,8 @@ Response
 ]
 ```
 
-#### Authentication
+
+### Authentication
 - ** POST **
 - [x] /login - Realiza o login
 ```
@@ -116,9 +117,11 @@ Response
 }
 ```
 
-#### UserGit (Apenas para Admin)
+
+### UserGit (Apenas para Admin)
 - ** GET **
-- [x] /userGit/:username - Retorna as informações do Github
+- [x] /userGit/:username - Retorna as informações do Github (username = Nome do usuario no Github)
+      Ex: /userGit/Matelaa
 ```
 Header
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
@@ -158,7 +161,8 @@ Response
 }
 ```
 
-#### List
+
+### List
 - ** POST **
 - [x] /list - Cria uma lista
 ```
@@ -218,7 +222,8 @@ Response
 ```
 
 - ** PUT **
-- [x] /list/:id - Altera o nome de uma lista do usuario
+- [x] /list/:id - Altera o nome de uma lista do usuario (id = id de uma lista do usuario)
+      Ex: /list/5d6b18bb80d4d8138c783810
 ```
 Header
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
@@ -246,7 +251,8 @@ Response
 ```
 
 - ** DELETE **
-- [x] /list/:id - Deleta uma lista do usuario
+- [x] /list/:id - Deleta uma lista do usuario (id = id de uma lista do usuario)
+      Ex: /list/5d6b18bb80d4d8138c783810
 ```
 Header
 x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODBiOTA1ZWMzNTNmYWUiLCJpYXQiOjE1NjcyOTkyODd9.qEcQ_BlDVYG4coVx-nCAPDe9VdBTTp_kq_4iT9q_Hhg
@@ -256,7 +262,8 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDZiMTZhZTZmODB
 }
 ```
 
-#### UserGitList
+
+### UserGitList
 - ** GET **
 - [x] /usersGit - Retorna os usuarios cadastrados por um ADMIN
 ```
@@ -274,6 +281,17 @@ Response
         "html_url": "https://github.com/Matelaa",
         "createdAt": "2019-09-01T00:59:01.729Z",
         "updatedAt": "2019-09-01T00:59:01.729Z",
+        "__v": 0
+    },
+    {
+        "_id": "5d6b1b7480d4d8138c783811",
+        "login": "BrenoAquino",
+        "name": "Breno Aquino",
+        "bio": "iOS Developer",
+        "location": "São Paulo, São Paulo",
+        "html_url": "https://github.com/BrenoAquino",
+        "createdAt": "2019-09-01T01:14:28.245Z",
+        "updatedAt": "2019-09-01T01:14:28.245Z",
         "__v": 0
     }
 ]
