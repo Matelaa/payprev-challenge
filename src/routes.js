@@ -9,10 +9,6 @@ const authMiddleware = require('./middlewares/auth');
 
 const routes = express.Router();
 
-routes.get('/', (req, res) => {
-    res.json('Hello Payprev')
-})
-
 // UserController - Rotas para criar um User e listar os users.
 routes.post('/user', UserController.store)
 routes.get('/users', UserController.index)
