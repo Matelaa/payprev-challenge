@@ -21,6 +21,14 @@ module.exports = {
             return res.status(406).json({ error: 'This list already exists in our database.' })
         }
 
+        if (usersGit === undefined) {
+            const list = await List.create({ name,
+                                             user: req.user._id,
+                                             usersGit
+                                            })
+            res.status(201).json(list)
+        }
+
         // For feito para caso ele queira criar uma lista com mais de um usuario de primeira, checar se esses usuarios estao disponiveis pelo admin
         for (let i = 0; i < usersGit.length; i++) {
             const userGitExists = await UserGit.findById({ _id: usersGit[i].userGit })
